@@ -4,7 +4,7 @@ rename_photos_by_schedule.py — Batch rename site photos by construction schedu
 Renames site photos from scattered filenames to structured format:
   {date}_{phase_code}_{phase_desc}_{seq}.{ext}
 
-Example: IMG_20250721_001.jpg → 07-21_前期_施工前現場_01.jpg
+Example: IMG_20250721_001.jpg → 07-21_前期_施工前现场_01.jpg
 
 CONFIG: edit BASE (photo folder), LOG (output plan path), MAPPING (date → phases).
 The MAPPING dict maps each date to a list of (phase_code, phase_desc) tuples,
@@ -26,25 +26,25 @@ LOG = Path(r"<PROJECTS_ROOT>\output\photo_rename_plan.json")    # <-- EDIT: plan
 # Each entry corresponds to one photo in that date folder
 MAPPING = {
     "07-21": [
-        ("前期", "施工前現場"),
-        ("前期", "施工前現場"),
+        ("前期", "施工前现场"),
+        ("前期", "施工前现场"),
     ],
     "07-22": [
-        ("A1", "地盤準備圍蔽"),
-        ("A1", "地盤準備圍蔽"),
-        ("A1", "地盤準備圍蔽"),
-        ("A1", "地盤準備圍蔽"),
+        ("A1", "地盘准备围蔽"),
+        ("A1", "地盘准备围蔽"),
+        ("A1", "地盘准备围蔽"),
+        ("A1", "地盘准备围蔽"),
     ],
     "07-25": [
-        ("B1", "一樓拆卸"),
-        ("B1", "一樓拆卸"),
-        ("B1", "一樓拆卸"),
+        ("B1", "一楼拆卸"),
+        ("B1", "一楼拆卸"),
+        ("B1", "一楼拆卸"),
     ],
     "07-27": [
-        ("A1", "地盤保護"),
-        ("B1", "一樓拆卸"),
-        ("B2", "二樓拆卸"),
-        ("材料", "材料進場"),
+        ("A1", "地盘保护"),
+        ("B1", "一楼拆卸"),
+        ("B2", "二楼拆卸"),
+        ("材料", "材料进场"),
     ],
 }
 
