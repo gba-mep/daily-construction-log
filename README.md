@@ -61,16 +61,16 @@ pip install -r requirements.txt
 
 ```bash
 python scripts/generate_daily_log.py \
-  --date 2026-01-15 \
+  --date <YYYY-MM-DD> \
   --workers 2 \
-  --tasks "北侧围网安装,基础开挖,灯喉预埋"
+  --tasks "北侧示例工序安装,基础开挖,灯喉预埋"
 ```
 
 ### With Manual Weather/Tide Override
 
 ```bash
 python scripts/generate_daily_log.py \
-  --date 2026-01-15 \
+  --date <YYYY-MM-DD> \
   --workers 2 \
   --tasks "工序1,工序2" \
   --weather "大致多云" \
@@ -82,7 +82,7 @@ python scripts/generate_daily_log.py \
 ### Standalone PDF Merger
 
 ```bash
-python scripts/merge_pdf.py --date 2026-01-15
+python scripts/merge_pdf.py --date <YYYY-MM-DD>
 ```
 
 Merges: construction record PDF + weather report PDF + tide forecast PDF → one complete file.
@@ -92,8 +92,8 @@ Merges: construction record PDF + weather report PDF + tide forecast PDF → one
 | Feature | Description |
 |---------|-------------|
 | 📋 **Copy-yesterday strategy** | Inherits all formatting, checkboxes, table structure from yesterday's docx |
-| 🌤️ **SMG weather extraction** | Reads weather description from meteorological PDF (Chinese + Portuguese) |
-| 🌊 **SMG tide extraction** | Renders tide forecast PDF to PNG for image-based OCR |
+| 🌤️ **气象局 weather extraction** | Reads weather description from meteorological PDF (Chinese + Portuguese) |
+| 🌊 **气象局 tide extraction** | Renders tide forecast PDF to PNG for image-based OCR |
 | 📸 **Auto photo embedding** | Scans photo directory, embeds 4 photos at 2.6"×2.0" in table cells |
 | 📄 **PDF auto-merge** | docx→PDF + weather PDF + tide PDF → one complete record |
 | 📅 **Day number auto-calc** | Yesterday's day + 1 (eliminates manual counting errors) |
@@ -204,7 +204,7 @@ This repo also includes a site photo management tool as a bonus feature:
 Rename scattered site photos into structured filenames based on the construction schedule.
 
 ```
-IMG_20260115_001.jpg → 01-15_A1_围网安装_01.jpg
+IMG_20260115_001.jpg → 01-15_A1_示例工序安装_01.jpg
 ```
 
 **5-step workflow**: Read schedule → Scan photos → Generate contact sheets (visual ID) → Build mapping → Batch rename
