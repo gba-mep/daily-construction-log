@@ -10,7 +10,7 @@ Site photos come in with random filenames like `IMG_20260115_001.jpg`. You need 
 - Phase description
 - Sequential number
 
-Example: `IMG_20260115_001.jpg` → `01-15_A1_围网安装_01.jpg`
+Example: `IMG_20260115_001.jpg` → `01-15_A1_示例工序安装_01.jpg`
 
 ## The Solution
 
