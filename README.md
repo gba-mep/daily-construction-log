@@ -10,9 +10,9 @@ Built from real construction workflows. Automates the most repetitive documentat
 [![Python](https://img.shields.io/badge/Python-3.10+-3776AB?logo=python&logoColor=white)](https://python.org)
 [![python-docx](https://img.shields.io/badge/python--docx-1.1+-217346?logo=python&logoColor=white)](https://python-docx.readthedocs.io)
 [![PyMuPDF](https://img.shields.io/badge/PyMuPDF-1.23+-00A000?logo=python&logoColor=white)](https://pymupdf.readthedocs.io)
-[![Stars](https://img.shields.io/github/stars/David-CB666/daily-construction-log?style=social)](https://github.com/David-CB666/daily-construction-log/stargazers)
-[![Last Commit](https://img.shields.io/github/last-commit/David-CB666/daily-construction-log)](https://github.com/David-CB666/daily-construction-log/commits)
-[![Part of the MEP Automation Toolkit](https://img.shields.io/badge/Toolkit-MEP%20automation-1565C0?logo=github&logoColor=white)](https://github.com/David-CB666)
+[![Stars](https://img.shields.io/github/stars/gba-mep/daily-construction-log?style=social)](https://github.com/gba-mep/daily-construction-log/stargazers)
+[![Last Commit](https://img.shields.io/github/last-commit/gba-mep/daily-construction-log)](https://github.com/gba-mep/daily-construction-log/commits)
+[![Part of the MEP Automation Toolkit](https://img.shields.io/badge/Toolkit-MEP%20automation-1565C0?logo=github&logoColor=white)](https://github.com/gba-mep)
 
 [Quick Start](#-quick-start) · [Features](#-features) · [Documentation](#-documentation) · [中文介绍](#-中文介绍)
 
@@ -52,7 +52,7 @@ Yesterday's docx ──copy──→ Today's docx ──modify──→ Embed ph
 ## 🚀 Quick Start
 
 ```bash
-git clone https://github.com/David-CB666/daily-construction-log.git
+git clone https://github.com/gba-mep/daily-construction-log.git
 cd daily-construction-log
 pip install -r requirements.txt
 ```
@@ -63,7 +63,7 @@ pip install -r requirements.txt
 python scripts/generate_daily_log.py \
   --date 2026-01-15 \
   --workers 2 \
-  --tasks "北側圍網安裝,基礎開挖,燈喉預埋"
+  --tasks "北侧围网安装,基础开挖,灯喉预埋"
 ```
 
 ### With Manual Weather/Tide Override
@@ -73,9 +73,9 @@ python scripts/generate_daily_log.py \
   --date 2026-01-15 \
   --workers 2 \
   --tasks "工序1,工序2" \
-  --weather "大致多雲" \
-  --tide-low "1.3m（約08:10）" \
-  --tide-high "2.1m（約01:40）" \
+  --weather "大致多云" \
+  --tide-low "1.3m（约08:10）" \
+  --tide-high "2.1m（约01:40）" \
   --no-pdf
 ```
 
@@ -114,7 +114,7 @@ daily-construction-log/
 │   ├── photo-rules.md           # Photo processing rules
 │   └── reference-screenshots.md # Troubleshooting case studies
 ├── templates/
-│   └── 空白模板說明.md           # Blank template structure (for reference only)
+│   └── 空白模板说明.md           # Blank template structure (for reference only)
 ├── artifacts/                   # Generated log examples (fictional sample)
 ├── README.md
 └── LICENSE
@@ -152,7 +152,7 @@ High tide < 3.0m → ☑ 否 (No warning)
 
 ## 📊 Real-World Impact
 
-> *"以前每日施工記錄表要手動 Copy-Paste、插照片、合併 PDF，搞 15-30 分鐘一份。而家一條 command 搞掂，天氣潮汐自動提取，照片自動嵌入，PDF 自動合併。"*
+> *"以前每日施工记录表要手动 Copy-Paste、插照片、合并 PDF，搞 15-30 分钟一份。现在一条 command 搞定，天气潮汐自动提取，照片自动嵌入，PDF 自动合并。"*
 > — Mike, MEP Project Manager
 
 | Metric | Before (Manual) | After (Generator) |
@@ -204,7 +204,7 @@ This repo also includes a site photo management tool as a bonus feature:
 Rename scattered site photos into structured filenames based on the construction schedule.
 
 ```
-IMG_20260115_001.jpg → 01-15_A1_圍網安裝_01.jpg
+IMG_20260115_001.jpg → 01-15_A1_围网安装_01.jpg
 ```
 
 **5-step workflow**: Read schedule → Scan photos → Generate contact sheets (visual ID) → Build mapping → Batch rename
@@ -228,10 +228,10 @@ python bonus/references/rename_photos_by_schedule.py
 
 | Tool | Description |
 |------|-------------|
-| [**GanttChart Pro**](https://github.com/David-CB666/gantt-chart-pro) | Professional Gantt charts in Excel — no MS Project |
-| [**Excel Template Filler**](https://github.com/David-CB666/excel-template-filler) | Dual-engine batch template filling — images & print settings preserved |
-| [**VBA Macro Reader**](https://github.com/David-CB666/VBA-Macro-Reader-v2.0.0) | Read, modify & execute VBA macros from .xlsm files |
-| [**Material Submittal Generator**](https://github.com/David-CB666/material-submittal-generator) | One-click batch submittals + auto BQ page merging |
+| [**GanttChart Pro**](https://github.com/gba-mep/gantt-chart-pro) | Professional Gantt charts in Excel — no MS Project |
+| [**Excel Template Filler**](https://github.com/gba-mep/excel-template-filler) | Dual-engine batch template filling — images & print settings preserved |
+| [**VBA Macro Reader**](https://github.com/gba-mep/VBA-Macro-Reader-v2.0.0) | Read, modify & execute VBA macros from .xlsm files |
+| [**Material Submittal Generator**](https://github.com/gba-mep/material-submittal-generator) | One-click batch submittals + auto BQ page merging |
 
 ## 🤝 Contributing
 
@@ -239,7 +239,7 @@ Contributions are welcome! Please read the [Contributing Guide](CONTRIBUTING.md)
 
 ## 📄 License
 
-MIT © [David-CB666](https://github.com/David-CB666)
+MIT © [gba-mep](https://github.com/gba-mep)
 
 ---
 
@@ -253,11 +253,11 @@ MIT © [David-CB666](https://github.com/David-CB666)
 
 ## Related repositories
 
-Part of the **[MEP & construction document automation toolkit](https://github.com/David-CB666)** — open-source tools built from real jobsite workflows.
+Part of the **[MEP & construction document automation toolkit](https://github.com/gba-mep)** — open-source tools built from real jobsite workflows.
 
-- **Handbook** — [ai-agent-manual](https://github.com/David-CB666/ai-agent-manual) (8-level AI cultivation for engineers)
-- **Document generation** — [material-approval-pipeline](https://github.com/David-CB666/material-approval-pipeline) · [material-submittal-generator](https://github.com/David-CB666/material-submittal-generator) · [excel-template-filler](https://github.com/David-CB666/excel-template-filler) · [python-docx-photo-grid](https://github.com/David-CB666/python-docx-photo-grid) · [officecli-workflow](https://github.com/David-CB666/officecli-workflow)
-- **Engineering calculation** — [lighting-lux-calculator](https://github.com/David-CB666/lighting-lux-calculator) · [ups-discharge-time-calculator](https://github.com/David-CB666/ups-discharge-time-calculator) · [gantt-chart-pro](https://github.com/David-CB666/gantt-chart-pro) · [electrical-test-report-generator](https://github.com/David-CB666/electrical-test-report-generator)
-- **CAD & drawings** — [electrical-panel-label-plates](https://github.com/David-CB666/electrical-panel-label-plates)
-- **Data & OCR** — [ocr-skill](https://github.com/David-CB666/ocr-skill) · [VBA-Macro-Reader-v2.0.0](https://github.com/David-CB666/VBA-Macro-Reader-v2.0.0)
-- **Compliance & AI ops** — [confined-space-planner](https://github.com/David-CB666/confined-space-planner) · [skill-router](https://github.com/David-CB666/skill-router) · [consulting-services](https://github.com/David-CB666/consulting-services)
+- **Handbook** — [ai-agent-manual](https://github.com/gba-mep/ai-agent-manual) (8-level AI cultivation for engineers)
+- **Document generation** — [material-approval-pipeline](https://github.com/gba-mep/material-approval-pipeline) · [material-submittal-generator](https://github.com/gba-mep/material-submittal-generator) · [excel-template-filler](https://github.com/gba-mep/excel-template-filler) · [python-docx-photo-grid](https://github.com/gba-mep/python-docx-photo-grid) · [officecli-workflow](https://github.com/gba-mep/officecli-workflow)
+- **Engineering calculation** — [lighting-lux-calculator](https://github.com/gba-mep/lighting-lux-calculator) · [ups-discharge-time-calculator](https://github.com/gba-mep/ups-discharge-time-calculator) · [gantt-chart-pro](https://github.com/gba-mep/gantt-chart-pro) · [electrical-test-report-generator](https://github.com/gba-mep/electrical-test-report-generator)
+- **CAD & drawings** — [electrical-panel-label-plates](https://github.com/gba-mep/electrical-panel-label-plates)
+- **Data & OCR** — [ocr-skill](https://github.com/gba-mep/ocr-skill) · [VBA-Macro-Reader-v2.0.0](https://github.com/gba-mep/VBA-Macro-Reader-v2.0.0)
+- **Compliance & AI ops** — [confined-space-planner](https://github.com/gba-mep/confined-space-planner) · [路由规则](https://github.com/gba-mep/路由规则) · [consulting-services](https://github.com/gba-mep/consulting-services)
