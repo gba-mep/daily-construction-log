@@ -5,10 +5,10 @@
 =====================================
 用途：從昨日docx複製 → 修改變動欄位 → 嵌入照片 → 輸出docx
 項目：[項目名稱]
-更新：2026-08-01（照片規格寫死2.6"×2.0"、支援多種照片命名）
+更新：<YYYY-MM-DD>（照片規格寫死2.6"×2.0"、支持多種照片命名）
 
 使用方法：
-    python generate_daily_log.py --date 2026-08-02 --workers 4 --tasks "工序1,工序2,工序3"
+    python generate_daily_log.py --date <YYYY-MM-DD> --workers 4 --tasks "工序1,工序2,工序3"
 
 環境需求：
     pip install python-docx docx2pdf pypdf pymupdf
@@ -26,13 +26,13 @@ from docx.enum.text import WD_ALIGN_PARAGRAPH
 # 🔧 配置區 — 按項目修改
 # ============================================================
 BASE_DIR = r"<PROJECTS_ROOT>\[項目名稱]\每日施工記錄"
-PROJECT_START_DATE = "2026-06-22"  # 開工第一天
+PROJECT_START_DATE = "<YYYY-MM-DD>"  # 开工第一天  # 開工第一天
 DEFAULT_ENTRY_TIME = "09:00"
 DEFAULT_EXIT_TIME = "18:00"
 RECORDER = "[建築公司名稱]"
 
 # ============================================================
-# 📸 照片規格（🔴 不可修改 — Mike 2026-07-31 確立）
+# 📸 照片規格（🔴 不可修改 — 作者确立）
 # ============================================================
 PHOTO_WIDTH_INCH = 2.6
 PHOTO_HEIGHT_INCH = 2.0
@@ -42,7 +42,7 @@ PHOTO_HEIGHT_INCH = 2.0
 # ============================================================
 def extract_weather(date_str):
     """
-    從 SMG 天氣報告 PDF 提取天氣描述。
+    從 氣象局天氣報告 PDF 提取天氣描述。
     優先查找附件/天氣報告/天氣報告_YYYY-MM-DD.pdf
     返回: 天氣描述文字
     """
@@ -83,7 +83,7 @@ def extract_weather(date_str):
 
 def extract_tide(date_str):
     """
-    從 SMG 潮汐預報 PDF 提取潮汐數據。
+    從 氣象局潮汐預報 PDF 提取潮汐數據。
     使用圖像渲染 + AI 辨識方式。
     返回: (low_tide_str, high_tide_str) 如 ("1.0m（約17:00）", "2.8m（約08:00）")
     """
@@ -110,7 +110,7 @@ def extract_tide(date_str):
 # ============================================================
 def find_photos(date_str):
     """
-    掃描照片目錄，支援多種命名格式。
+    掃描照片目錄，支持多種命名格式。
     返回: 照片路徑列表（最多4張）
     """
     photo_dir = os.path.join(BASE_DIR, "附件", "現埸相", date_str)
@@ -118,7 +118,7 @@ def find_photos(date_str):
         print(f"⚠️ 照片目錄不存在: {photo_dir}")
         return []
 
-    # 支援的命名格式
+    # 支持的命名格式
     naming_schemes = [
         ["圖一.jpg", "圖二.jpg", "圖三.jpg", "圖四.jpg"],
         ["圖 (1).jpg", "圖 (2).jpg", "圖 (3).jpg", "圖 (4).jpg"],
@@ -190,7 +190,7 @@ def find_yesterday_docx(date_str):
     for offset in range(1, 8):
         d = today - timedelta(days=offset)
         d_str = d.isoformat()
-        # 支援多種命名格式
+        # 支持多種命名格式
         for fmt in [f"{d_str}每日施工記錄表.docx", f"{d_str}_每日施工記錄表.docx"]:
             path = os.path.join(BASE_DIR, fmt)
             if os.path.exists(path):
@@ -366,7 +366,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="每日施工記錄表生成器 v3.0")
     parser.add_argument("--date", required=True, help="日期 YYYY-MM-DD")
     parser.add_argument("--workers", required=True, help="施工人數（如 '4人'）")
-    parser.add_argument("--tasks", required=True, help="施工項目，逗號分隔（如 '安裝圍網,安裝水電樁,堤岸燈安裝'）")
+    parser.add_argument("--tasks", required=True, help="施工項目，逗號分隔（如 '工序A,工序B,工序C'）")
     parser.add_argument("--stage", default=None, help="施工階段覆蓋（如不提供則繼承昨日）")
     parser.add_argument("--weather", default=None, help="手動天氣描述（如不提供則自動提取）")
     parser.add_argument("--tide-low", default=None, help="手動低潮（如 '1.0m（約17:00）'）")
