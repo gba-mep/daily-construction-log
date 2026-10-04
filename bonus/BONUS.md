@@ -10,7 +10,7 @@ Site photos come in with random filenames like `IMG_20260115_001.jpg`. You need 
 - Phase description
 - Sequential number
 
-Example: `IMG_20260115_001.jpg` → `01-15_A1_圍網安裝_01.jpg`
+Example: `IMG_20260115_001.jpg` → `01-15_A1_围网安装_01.jpg`
 
 ## The Solution
 
@@ -22,7 +22,7 @@ Schedule (Excel) → Scan photos → Contact sheets (visual ID) → Build mappin
 
 ### Step 1: Read Construction Schedule
 
-Parse `施工進度表.xlsx` to extract phase codes, descriptions, start/end dates. Build a `date → active phases` lookup.
+Parse `施工进度表.xlsx` to extract phase codes, descriptions, start/end dates. Build a `date → active phases` lookup.
 
 ### Step 2: Scan & Backup Photos
 
