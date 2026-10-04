@@ -7,7 +7,7 @@ PDF 合并脚本 — 将施工记录PDF + 天气报告PDF + 潮汐预报PDF合�
 依赖：pip install pypdf
 
 使用方法：
-    python merge_pdf.py --date 2026-08-02
+    python merge_pdf.py --date <YYYY-MM-DD>
 """
 
 import os
