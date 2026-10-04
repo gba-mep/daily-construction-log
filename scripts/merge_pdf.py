@@ -1,4 +1,4 @@
-﻿#!/usr/bin/env python3
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
 PDF 合并脚本 — 将施工记录PDF + 天气报告PDF + 潮汐预报PDF合并为完整版
