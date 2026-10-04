@@ -1,10 +1,10 @@
 ﻿#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-PDF 合併腳本 — 將施工記錄PDF + 天氣報告PDF + 潮汐預報PDF合併為完整版
+PDF 合并脚本 — 将施工记录PDF + 天气报告PDF + 潮汐预报PDF合并为完整版
 =========================================================================
-用途：獨立合併工具，適用於手動生成PDF後的合併場景
-依賴：pip install pypdf
+用途：独立合并工具，适用于手动生成PDF后的合并场景
+依赖：pip install pypdf
 
 使用方法：
     python merge_pdf.py --date 2026-08-02
@@ -15,21 +15,21 @@ import sys
 import argparse
 from pypdf import PdfWriter, PdfReader
 
-BASE_DIR = r"<PROJECTS_ROOT>\[項目名稱]\每日施工記錄"
+BASE_DIR = r"<PROJECTS_ROOT>\[项目名称]\每日施工记录"
 
 
 def merge(date_str):
-    """合併施工記錄 + 天氣 + 潮汐為一個PDF"""
-    construction_pdf = os.path.join(BASE_DIR, f"{date_str}每日施工記錄表.pdf")
-    weather_pdf = os.path.join(BASE_DIR, "附件", "天氣報告", f"天氣報告_{date_str}.pdf")
-    tide_pdf = os.path.join(BASE_DIR, "附件", "潮汐預報", f"潮汐預報_{date_str}.pdf")
-    output_pdf = os.path.join(BASE_DIR, f"{date_str}每日施工記錄表_完整版.pdf")
+    """合并施工记录 + 天气 + 潮汐为一个PDF"""
+    construction_pdf = os.path.join(BASE_DIR, f"{date_str}每日施工记录表.pdf")
+    weather_pdf = os.path.join(BASE_DIR, "附件", "天气报告", f"天气报告_{date_str}.pdf")
+    tide_pdf = os.path.join(BASE_DIR, "附件", "潮汐预报", f"潮汐预报_{date_str}.pdf")
+    output_pdf = os.path.join(BASE_DIR, f"{date_str}每日施工记录表_完整版.pdf")
 
-    # 檢查文件存在
+    # 检查文件存在
     files = [
-        ("施工記錄PDF", construction_pdf),
-        ("天氣報告PDF", weather_pdf),
-        ("潮汐預報PDF", tide_pdf),
+        ("施工记录PDF", construction_pdf),
+        ("天气报告PDF", weather_pdf),
+        ("潮汐预报PDF", tide_pdf),
     ]
 
     writer = PdfWriter()
@@ -38,26 +38,26 @@ def merge(date_str):
             reader = PdfReader(path)
             for page in reader.pages:
                 writer.add_page(page)
-            print(f"✅ 已添加: {label} ({len(reader.pages)} 頁)")
+            print(f"✅ 已添加: {label} ({len(reader.pages)} 页)")
         else:
-            print(f"⚠️  跳過不存在的文件: {label} ({path})")
+            print(f"⚠️  跳过不存在的文件: {label} ({path})")
 
     with open(output_pdf, 'wb') as f:
         writer.write(f)
 
-    print(f"\n📄 合併完成: {output_pdf}")
+    print(f"\n📄 合并完成: {output_pdf}")
 
-    # 可選：替換原始施工記錄PDF
+    # 可选：替换原始施工记录PDF
     if os.path.exists(construction_pdf):
         os.remove(construction_pdf)
         os.rename(output_pdf, construction_pdf)
-        print(f"🔄 已替換: {construction_pdf}")
+        print(f"🔄 已替换: {construction_pdf}")
 
     return construction_pdf
 
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="PDF合併工具")
+    parser = argparse.ArgumentParser(description="PDF合并工具")
     parser.add_argument("--date", required=True, help="日期 YYYY-MM-DD")
     args = parser.parse_args()
 
